@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Add Tickets</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel='stylesheet' type='text/css' media='screen' href='./css/AddTick.css'>
+</head>
+<style>
+    .fa-check{
+    border: 2px solid black;
+    border-radius: 5px;
+}
+body.dark .fa-check{
+    border-color: white;
+}
+</style>
+<body>
+    <div class="container"> 
+        <aside class="sidebar">  
+            <div class="logo">  
+                <img src="./img/classera.png" alt="Logo" width="80" height="80">  
+                <div style="font-size: x-large;">Classera</div>  
+            </div>  
+            <nav>  
+                <a href="#"><i class="icon fa-solid fa-house"></i>Dashboard</a>  
+                <a href="#"><i class="icon fa-solid fa-check"></i>Tickets</a>  
+                <a href="#"><i class="icon fa-solid fa-user"></i>Customers</a>  
+                <a href="#"><i class="icon fa-solid fa-building"></i>Organizations</a>  
+                <a href="#"><i class="icon fa-solid fa-chart-simple"></i>Reporting</a>  
+                <a href="#"><i class="icon fa-solid fa-gear"></i>Settings</a>
+            </nav>  
+            <div class="switch-container">   
+                <span><i class="icon fa-regular fa-comment-dots"></i> Sera</span>   
+                <span><i class="icon fa-solid fa-moon" ></i>Dark Mode <label class="switch-label">  
+                    <input type="checkbox" id="theme-toggle">  
+                    <span class="slider"></span>  
+                </label> </span>   
+            </div>     
+        </aside>  
+
+        <main class="content"> 
+            <div class="header">  
+                <div class="search-bar">  
+                    <input type="text" id="search" placeholder="🔍 Search...">
+                </div> 
+                <div class="login-info">
+                    <a href=""><i class='icon bx bx-envelope' ></i></a>
+                    <a href=""><i class='icon bx bx-bell'></i></a>
+                    <span style="margin-right: 10px;">|</span>
+                    <a href=""><i class='icon bx bx-user-circle' ></i></a>
+                    <a href=""><i class='icon bx bx-chevron-down' ></i></a>
+                </div>
+            </div>
+            
+            <!--  -->
+
+            <div class="main-content">
+                <form id="myForm" action="" >
+                <div class="head form-item">
+                    <i class='bx bx-home'></i><i class='bx bx-chevron-right'></i>Tickets
+                    <i class='bx bx-chevron-right'></i>Add Tickets
+                </div>
+                <div class="form-item" style="font-size: x-large; margin-top: 20px;">Add Tickets</div> 
+                
+                <!-- 111111111111111 -->
+
+                <div class="sec1 form-item">  
+                    <div class="sec1-item sec1-1">Subject</div>  
+                    <div class="sec1-item col2"><input type="text" class="sec1-input"></div>    
+                    <div class="sec1-item sec1-2">Titel Of Tickets</div>  
+                </div>
+                <hr>
+
+                <!-- 2222222222222222222 -->
+
+                <div class="sec2 form-item">  
+                    <div class="sec2-item sec2-1">Describtion</div>  
+                    <div class="sec2-item col2-2"><textarea class="sec2-input"></textarea></div>    
+                    <div class="sec2-item sec2-2">Detailed Describtion For The Ticket</div>  
+                </div>
+                <hr>
+
+                <!-- 3333333333333333333333 -->
+
+                <div class="sec3 form-item">  
+                    <div class="sec3-item sec3-1">Prand</div>  
+                    <div class="sec3-item col3-2">          
+                        <div class="custom-select">  
+                            <div class="selected">Select Product 
+                            <span class="arrow"><i class='bx bx-chevron-down rotate'></i></span>   
+                            </div>  
+                            <div class="options">  
+                                <div class="option"><img class="imgsize" src="./img/cpay.jpeg" alt="Payment"> Payment</div>  
+                                <div class="option"><img class="imgsize" src="./img/pre.png" alt="learn"> Learning Mangment System</div>  
+                                <div class="option"><img class="imgsize" src="./img/real.png" alt="Reality"> Creality</div>  
+                                <div class="option"><img class="imgsize" src="./img/space.png" alt="space"> Cspaces</div> 
+                                <div class="option"><img class="imgsize" src="./img/inspire.png" alt="Cinspire"> Cicspire</div>   
+                            </div>  
+                        </div>  
+
+                    </div>    
+                    <div class="sec3-item sec3-2">Product On Witch Issus Happen</div>  
+                </div>
+                <hr>
+
+                <!-- 4444444444444444444444444 -->
+
+                <div class="sec4 form-item">  
+                    <div class="sec4-item sec4-1">Module</div>  
+                    <div class="sec4-item col4-2">          
+                        <div class="custom-select2">  
+                            <div class="selected2">Select Product   
+                                <span class="arrow2"><i class='bx bx-chevron-down'></i></span>   
+                            </div>  
+                            <div class="options2">  
+                                <div class="option2">Assessment Module</div>  
+                                <div class="option2">Exams Module</div>  
+                                <div class="option2">Grades Management Module</div>  
+                                <div class="option2">Scores Module</div>   
+                                <div class="option2">User Management Module</div>   
+                            </div>  
+                        </div>  
+                    </div>    
+                    <div class="sec4-item sec4-2">Module On Which Issue Happens</div>  
+                </div>
+                <hr>
+
+                <div class="sub form-item">
+                    <button class="cancel">Cancel</button>
+                    <button class="save save-button" type="submit" id="saveButton">Save
+                    <span class="spinner hidden"></span>
+                    <i class='bx bx-check success-icon hidden'></i> 
+                </button>
+                </div>
+            </form>
+            </div>
+        </main>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/boxicons/2.1.0/dist/boxicons.js" integrity="sha512-Dm5UxqUSgNd93XG7eseoOrScyM1BVs65GrwmavP0D0DujOA8mjiBfyj71wmI2VQZKnnZQsSWWsxDKNiQIqk8sQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="./js/AddTick.js"></script> 
+
+</body>
+</html>

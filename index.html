@@ -1,0 +1,203 @@
+<!DOCTYPE html>  
+<html lang="ar">  
+<head>  
+    <meta charset="UTF-8">  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <title>Classera Dashboard</title> 
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="./css/Dash.css">  
+</head>  
+<style>
+.fa-check{
+    border: 2px solid black;
+    border-radius: 5px;
+}
+body.dark .fa-check{
+    border-color: white;
+}
+
+</style>
+
+<body>  
+    <div class="container"> 
+        <aside class="sidebar">  
+            <div class="logo">  
+                <img src="./img/classera.png" alt="Logo" width="80" height="80">  
+                <div style="font-size: x-large;">Classera</div>  
+            </div>  
+            <nav>  
+                <a href="#"><i class="icon fa-solid fa-house"></i>Dashboard</a>  
+                <a href="#"><i class="icon fa-solid fa-check"></i>Tickets</a>  
+                <a href="#"><i class="icon fa-solid fa-user"></i>Customers</a>  
+                <a href="#"><i class="icon fa-solid fa-building"></i>Organizations</a>  
+                <a href="#"><i class="icon fa-solid fa-chart-simple"></i>Reporting</a>  
+                <a href="#"><i class="icon fa-solid fa-gear"></i>Settings</a>
+            </nav>  
+            <div class="switch-container">   
+                <span><i class="icon fa-regular fa-comment-dots"></i> Sera</span>   
+                <span><i class="icon fa-solid fa-moon" ></i>Dark Mode <label class="switch-label">  
+                    <input type="checkbox" id="theme-toggle">  
+                    <span class="slider"></span>  
+                </label> </span>  
+                 
+            </div> 
+             
+        </aside>  
+
+        <main class="content"> 
+            <div class="header">  
+                <div class="search-bar">  
+                    <input type="text" id="search" placeholder="🔍 Search...">
+                </div> 
+                <div class="login-info">
+                    <a href=""><i class='icon bx bx-envelope' ></i></a>
+                    <a href=""><i class='icon bx bx-bell'></i></a>
+                    <span style="margin-right: 10px;">|</span>
+                    <a href=""><i class='icon bx bx-user-circle' ></i></a>
+                    <a href=""><i class='icon bx bx-chevron-down' ></i></a>
+                </div>
+            </div>
+            
+            <!--  -->
+
+
+            <div class="main-content">  
+                <div class="grid-container">  
+                    <!-- 1 -->
+                    <div class="item">
+                        <h4>Total Tickets</h4>
+                        <div class="order">
+                        <i class='item1 bx bxs-message-square-check'></i>
+                        <div id="counter1" class="item2">0</div>
+                        <i class='item4 bx bx-chevron-right'></i>
+                        <div class="item3" style="color: #90ee90;"><i class='bx bx-up-arrow-alt'></i>7.2% than last day</div>
+                    </div>
+                    </div>
+                    <!-- 2 --> 
+                    <div class="item">
+                        <h4>Total Interactions</h4>
+                        <div class="order">
+                        <i class='item1 bx bxs-chat'></i>
+                        <div id="counter2" class="item2">0</div>
+                        <i class='item4 bx bx-chevron-right'></i>
+                        <div class="item3" style="color: #90ee90;"><i class='bx bx-up-arrow-alt'></i>12.2% than last day</div>
+                    </div> 
+                    </div>
+                    <!-- 3 -->
+                    <div class="item">
+                        <h4>Total Users</h4>
+                        <div class="order">
+                        <i class='item1 bx bxs-user'></i>
+                        <div id="counter3" class="item2">0</div>
+                        <i class='item4 bx bx-chevron-right'></i>
+                        <div class="item3" style="color: red;"><i class='bx bx-down-arrow-alt' ></i>10.2% than last day</div>
+                    </div> 
+                    </div> 
+                    <!-- 4 -->
+                    <div class="item">
+                        <h4>Total Groups</h4>
+                        <div class="order">
+                        <i class='item1 bx bxs-group'></i>
+                        <div id="counter4" class="item2">0</div>
+                        <i class='item4 bx bx-chevron-right'></i>
+                        <div class="item3" style="color: #90ee90;"><i class='bx bx-up-arrow-alt'></i>3.2% than last day</div>
+                    </div> 
+                    </div> 
+
+
+                    <!--  -->
+
+
+                    <div class="item item-span-2"> 
+                        <h4>Tickets Overview</h4>
+                        <div id="chart1"></div>
+                    </div>
+
+                    <!--  -->
+
+                    <div class="item" >
+                        <h4>Overall Rating</h4>
+                        <div style="display: flex; align-items: center;flex-direction: column;margin-top: 10px;">
+                        <div class="rating">  
+                            <span class="rating-value">4.8</span><span class="max-rating">/5</span>  
+                        </div>  
+                        <div class="stars">  
+                            ★★★★★  
+                        </div>  
+                        <div class="rating-ratio">Rating Ratio</div>  
+                        <div class="range">
+                            <div class="sliderValue">
+                                <span class="rate-percent">33</span>
+                            </div>
+                        <div class="field">
+                            <input class="rate-input" type="range" min="0" max="100" value="33" steps="1">
+                        </div>
+                    </div>
+                        </div>
+                    </div> 
+                    
+                    <!--  -->
+
+                    <div class="item item-span-3">
+                        <h4>Attatchment Details</h4>
+                        <div id="chart2"></div>
+                        <!-- box1 -->
+                        <div class="data">
+                            <div class="order-2">
+                            <i class='item1-2 bx bxs-file-doc' style="color: blue;"></i>
+                            <div class="item2-2">Documents Files</div>
+                            <div class="item3-2">1.3GB</div>
+                            <div class="item4-2" style="font-size: x-small;">1.225</div>
+                        </div>
+                    </div>
+                    
+                    <!-- box2 -->
+
+                    <div class="data">
+                        <div class="order-2">
+                        <i class='item1-2 bx bxs-file-image' style="color: dodgerblue;"></i>
+                        <div class="item2-2">Images Files</div>
+                        <div class="item3-2">7.3GB</div>
+                        <div class="item4-2" style="font-size: x-small;">1.849</div>
+                    </div>
+                </div>
+
+                <!-- box3 -->
+
+                <div class="data">
+                    <div class="order-2">
+                    <i class='item1-2 bx bxs-user-voice' style="color: gold;"></i>
+                    <div class="item2-2">Voice Files</div>
+                    <div class="item3-2">4.1B</div>
+                    <div class="item4-2" style="font-size: x-small;">1.005</div>
+                </div>
+            </div>
+
+            <!-- box4 -->
+
+            <div class="data">
+                <div class="order-2">
+                <i class='item1-2 bx bxs-videos' style="color: crimson;"></i>
+                <div class="item2-2">Videos Files</div>
+                <div class="item3-2">1.3GB</div>
+                <div class="item4-2" style="font-size: x-small;">723</div>
+            </div>
+        </div>
+    </div>
+
+                    <!--  -->
+
+                    <div class="item item-span-4">
+                        <h4>Response & Resulation Time</h4>
+                        <div id="chart3"></div>
+                    </div> 
+            </div>  
+        </main>  
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/boxicons/2.1.0/dist/boxicons.js" integrity="sha512-Dm5UxqUSgNd93XG7eseoOrScyM1BVs65GrwmavP0D0DujOA8mjiBfyj71wmI2VQZKnnZQsSWWsxDKNiQIqk8sQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="./js/main.js"></script>  
+</body>  
+</html>

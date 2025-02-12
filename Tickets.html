@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tickets</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'> 
+    <link rel="stylesheet" href="./css/Tick.css">  
+</head>
+<style>
+    .fa-check{
+    border: 2px solid black;
+    border-radius: 5px;
+}
+body.dark .fa-check{
+    border-color: white;
+}
+</style>
+<body>
+    <div class="container"> 
+        <aside class="sidebar">  
+            <div class="logo">  
+                <img src="./img/classera.png" alt="Logo" width="80" height="80">  
+                <div style="font-size: x-large;">Classera</div>  
+            </div>  
+            <nav>  
+                <a href="#"><i class="icon fa-solid fa-house"></i>Dashboard</a>  
+                <a href="#"><i class="icon fa-solid fa-check"></i>Tickets</a>  
+                <a href="#"><i class="icon fa-solid fa-user"></i>Customers</a>  
+                <a href="#"><i class="icon fa-solid fa-building"></i>Organizations</a>  
+                <a href="#"><i class="icon fa-solid fa-chart-simple"></i>Reporting</a>  
+                <a href="#"><i class="icon fa-solid fa-gear"></i>Settings</a>
+            </nav>  
+            <div class="switch-container">   
+                <span><i class="icon fa-regular fa-comment-dots"></i> Sera</span>   
+                <span><i class="icon fa-solid fa-moon" ></i>Dark Mode <label class="switch-label">  
+                    <input type="checkbox" id="theme-toggle">  
+                    <span class="slider"></span>  
+                </label> </span>   
+            </div>     
+        </aside>  
+
+        <main class="content"> 
+            <div class="header">  
+                <div class="search-bar">  
+                    <input type="text" id="search" placeholder="🔍 Search...">
+                </div> 
+                <div class="login-info">
+                    <a href=""><i class='icon bx bx-envelope' ></i></a>
+                    <a href=""><i class='icon bx bx-bell'></i></a>
+                    <span style="margin-right: 10px;">|</span>
+                    <a href=""><i class='icon bx bx-user-circle' ></i></a>
+                    <a href=""><i class='icon bx bx-chevron-down' ></i></a>
+                </div>
+            </div>
+            
+            <!--  -->
+
+
+            <div class="main-content">  
+                <div class="grid-container">
+                    <div class="head"><i class='bx bx-home'></i><i class='bx bx-chevron-right'></i>Tickets</div>  
+                    <div class="box box2 headtext">Tickets</div>  
+                    <div class="box box3">
+                        <button class="bt1"><i class='bx bx-cloud-upload'></i>Export</button> 
+                        <button class="bt2"><i class='bx bx-plus'></i>Add Tickets</button>
+                    </div>
+                </div>
+                <!--  -->
+                <div class="navbar">  
+                    <ul>  
+                        <li class="active" onclick="setActive(this)">Overview</li>  
+                        <li onclick="setActive(this)">Development</li>  
+                        <li onclick="setActive(this)">New Feature</li>  
+                        <li onclick="setActive(this)">FAQ</li>  
+                    </ul>  
+                </div> 
+                <!--  -->
+                <div class="countsec">  
+                    <!-- 111111 -->
+                    <div class="grid-item grid2" style="color: #E91E63;">
+                    <div class="grid-item item1" style='font-size: x-large; display: flex; align-items: end; justify-content: center;'>Open</div>  
+                    <div id="chart1" class="grid-item item2"></div>  
+                    <div class="grid-item item3" style='font-size: x-large;'>7</div>
+                </div> 
+                    
+                    <!-- 2222222 -->
+                    <div class="grid-item grid2" style="color: #4285f4;">
+                        <div class="grid-item item1" style='font-size: x-large; white-space: nowrap; display: flex; align-items: end; justify-content: center;'>In Progress</div>  
+                        <div id="chart2" class="grid-item item2"></div>  
+                        <div class="grid-item item3" style='font-size: x-large;'>15</div>
+                    </div>
+                    
+                    <!-- 3333333 -->
+                    <div class="grid-item grid2" style="color: #FF9800;">
+                        <div class="grid-item item1" style='font-size: x-large; display: flex; align-items: end; justify-content: center;'>Pending</div>  
+                        <div id="chart3" class="grid-item item2"></div>  
+                        <div class="grid-item item3" style='font-size: x-large;'>44</div>
+                    </div>
+                    <!-- 4444444 -->
+                    <div class="grid-item grid2" style="color: #53b659;">
+                        <div class="grid-item item1" style='font-size: x-large; display: flex; align-items: end; justify-content: center;'>Resolved</div>  
+                        <div id="chart4" class="grid-item item2"></div>  
+                        <div class="grid-item item3" style='font-size: x-large;'>4205</div>
+                    </div>
+
+                </div> 
+                
+                <!-- table sec -->
+                <div class="gridtable">  
+                    <div class="item1">
+                        <button class="bt1"><i class='bx bx-filter'></i>Filter</button>
+                    </div>  
+                    <div class="item2">
+                        <input type="text" class="search" placeholder="🔍Search In Table...">
+                    </div> 
+                
+                    <!-- table -->
+
+                    <div class="itemtable3">
+                        <table class="styled-table">  
+                            <thead>  
+                                <tr >  
+                                    <th>ID</th>  
+                                    <th>Brand</th>  
+                                    <th>Requester</th>  
+                                    <th>Assignee</th>  
+                                    <th>Status</th>  
+                                    <th>Intraction</th>  
+                                    <th>Responsiveness</th>  
+                                    <th>Date</th>  
+                                </tr>  
+                            </thead>  
+                            <tbody>  
+                                <tr>  
+                                    <td style="font-size: small;">2215125</td>  
+                                    <td>
+                                        <div class="profile-card">  
+                                            <img src="./img/pre.png" alt="user" class="profile-image">  
+                                            <div class="profile-info">  
+                                                <p class="name">Lms</p>  
+                                                <p class="title">Reports</p>  
+                                            </div>  
+                                        </div> 
+                                    </td>  
+                                    <td>
+                                        <div class="profile-card">  
+                                            <img src="./img/2.png" alt="user" class="profile-image">  
+                                            <div class="profile-info">  
+                                                <p class="name">Huzifa Yousef</p>  
+                                                <p class="title">CTO at Classera</p>  
+                                            </div>  
+                                        </div> 
+                                    </td>  
+                                    <td>
+                                        <div class="profile-card">  
+                                            <img src="./img/1.png" alt="user" class="profile-image">  
+                                            <div class="profile-info">  
+                                                <p class="name">Mohammad Ashmawi</p>  
+                                                <p class="title">CTO at Classera</p>  
+                                            </div>  
+                                        </div>  
+                                    </td>  
+                                    <td> 
+                                        <div class="progress"><i class='bx bxs-circle' style="font-size: x-small;"></i>
+                                            In progress</div>
+                                    </td>  
+                                    <td>
+                                        <div class="avatar-container">  
+                                            <img src="./img/1.png" alt="1" class="avatar">  
+                                            <img src="./img/2.png" alt="2" class="avatar">  
+                                            <img src="./img/3.png" alt="3" class="avatar">  
+                                            <img src="./img/4.png" alt="4" class="avatar">  
+                                            <span class="plus">+3</span>  
+                                        </div> 
+                                    </td>  
+                                    <td>
+                                        <div class="progress-bar">  
+                                            <div class="filled" id="filled" style="width: 30%;"></div>  
+                                            <input type="range" min="0" max="100" value="30" class="range-input" id="rangeInput">  
+                                            <span class="progress-value" id="progressValue">30%</span>
+
+                                        </div>  
+                                    </td>  
+                                    <td class="date">Feb 22,2022</td>  
+                                </tr> 
+
+                                <!--  -->
+
+                                <tr>  
+                                    <td style="font-size: small;">2215124</td>  
+                                    <td>
+                                        <div class="profile-card">  
+                                            <img src="./img/cpay.jpeg" alt="user" class="profile-image">  
+                                            <div class="profile-info">  
+                                                <p class="name">Cpay</p>  
+                                                <p class="title">Pyment Module</p>  
+                                            </div>  
+                                        </div> 
+                                    </td>  
+                                    <td>
+                                        <div class="profile-card">  
+                                            <img src="./img/3.png" alt="user" class="profile-image">  
+                                            <div class="profile-info">  
+                                                <p class="name">Mohammad Yousef</p>  
+                                                <p class="title">Manger</p>  
+                                            </div>  
+                                        </div> 
+                                    </td>  
+                                    <td>
+                                        <div class="profile-card">  
+                                            <img src="./img/4.png" alt="user" class="profile-image">  
+                                            <div class="profile-info">  
+                                                <p class="name">Taher Sadeq</p>  
+                                                <p class="title">CO</p>  
+                                            </div>  
+                                        </div>  
+                                    </td>  
+                                    <td> 
+                                        <div class="pending"><i class='bx bxs-circle' style="font-size: x-small;"></i>
+                                            Pending</div>
+                                    </td>  
+                                    <td>
+                                        <div class="avatar-container">  
+                                            <img src="./img/2.png" alt="1" class="avatar">  
+                                            <img src="./img/3.png" alt="2" class="avatar">  
+                                            <img src="./img/1.png" alt="3" class="avatar">  
+                                            <img src="./img/4.png" alt="4" class="avatar">  
+                                            <span class="plus">+3</span>  
+                                        </div> 
+                                    </td>  
+                                    <td>
+                                        <div class="progress-bar">  
+                                            <div id="filled" class="filled" style="width: 90%;"></div>  
+                                            <input id="rangeInput" type="range" min="0" max="100" value="90" class="range-input">  
+                                            <span id="progressValue" class="progress-value">90%</span>
+
+                                        </div>  
+                                    </td>  
+                                    <td class="date">Feb 21,2022</td>  
+                                </tr>  
+
+                                <!--  -->
+
+                                <tr>  
+                                    <td style="font-size: small;">2215123</td>  
+                                    <td>
+                                        <div class="profile-card">  
+                                            <img src="./img/real.png" alt="user" class="profile-image">  
+                                            <div class="profile-info">  
+                                                <p class="name">Creality</p>  
+                                                <p class="title">Activity Module</p>  
+                                            </div>  
+                                        </div> 
+                                    </td>  
+                                    <td>
+                                        <div class="profile-card">  
+                                            <img src="./img/2.png" alt="user" class="profile-image">  
+                                            <div class="profile-info">  
+                                                <p class="name">Jad Salman</p>  
+                                                <p class="title">Sapport</p>  
+                                            </div>  
+                                        </div> 
+                                    </td>  
+                                    <td>
+                                        <div class="profile-card">  
+                                            <img src="./img/1.png" alt="user" class="profile-image">  
+                                            <div class="profile-info">  
+                                                <p class="name">Hamza Bader</p>  
+                                                <p class="title">CO</p>  
+                                            </div>  
+                                        </div>  
+                                    </td>  
+                                    <td> 
+                                        <div class="resolved"><i class='bx bxs-circle' style="font-size: x-small;"></i>
+                                            Resolved</div>
+                                    </td>  
+                                    <td>
+                                        <div class="avatar-container">  
+                                            <img src="./img/3.png" alt="1" class="avatar">  
+                                            <img src="./img/4.png" alt="2" class="avatar">  
+                                            <img src="./img/2.png" alt="3" class="avatar">  
+                                            <img src="./img/1.png" alt="4" class="avatar">  
+                                            <span class="plus">+3</span>  
+                                        </div> 
+                                    </td>  
+                                    <td>
+                                        <div class="progress-bar">  
+                                            <div id="filled" class="filled" style="width: 50%;"></div>  
+                                            <input id="rangeInput" type="range" min="0" max="100" value="90" class="range-input">  
+                                            <span id="progressValue" class="progress-value">50%</span>
+
+                                        </div>  
+                                    </td>  
+                                    <td class="date">Jan 28,2023</td>  
+                                </tr>
+
+                                <!--  -->
+                                <tr>  
+                                    <td style="font-size: small;">2215129</td>  
+                                    <td>
+                                        <div class="profile-card">  
+                                            <img src="./img/space.png" alt="user" class="profile-image">  
+                                            <div class="profile-info">  
+                                                <p class="name">LMS</p>  
+                                                <p class="title">Courses Module</p>  
+                                            </div>  
+                                        </div> 
+                                    </td>  
+                                    <td>
+                                        <div class="profile-card">  
+                                            <img src="./img/4.png" alt="user" class="profile-image">  
+                                            <div class="profile-info">  
+                                                <p class="name">Ahmad Fadi</p>  
+                                                <p class="title">Manger</p>  
+                                            </div>  
+                                        </div> 
+                                    </td>  
+                                    <td>
+                                        <div class="profile-card">  
+                                            <img src="./img/1.png" alt="user" class="profile-image">  
+                                            <div class="profile-info">  
+                                                <p class="name">Tareq Ahmad</p>  
+                                                <p class="title">Hr</p>  
+                                            </div>  
+                                        </div>  
+                                    </td>  
+                                    <td> 
+                                        <div class="resolved"><i class='bx bxs-circle' style="font-size: x-small;"></i>
+                                            Resolved</div>
+                                    </td>  
+                                    <td>
+                                        <div class="avatar-container">  
+                                            <img src="./img/3.png" alt="1" class="avatar">  
+                                            <img src="./img/4.png" alt="2" class="avatar">  
+                                            <img src="./img/2.png" alt="3" class="avatar">  
+                                            <img src="./img/1.png" alt="4" class="avatar">  
+                                            <span class="plus">+3</span>  
+                                        </div> 
+                                    </td>  
+                                    <td>
+                                        <div class="progress-bar">  
+                                            <div id="filled" class="filled" style="width: 85%;"></div>  
+                                            <input id="rangeInput" type="range" min="0" max="100" value="90" class="range-input">  
+                                            <span id="progressValue" class="progress-value">85%</span>
+
+                                        </div>  
+                                    </td>  
+                                    <td class="date">Mar 5,2023</td>  
+                                </tr>
+
+                                <!--  -->
+
+                                <tr>  
+                                    <td style="font-size: small;">2215129</td>  
+                                    <td>
+                                        <div class="profile-card">  
+                                            <img src="./img/pre.png" alt="user" class="profile-image">  
+                                            <div class="profile-info">  
+                                                <p class="name">LMS</p>  
+                                                <p class="title">Reports</p>  
+                                            </div>  
+                                        </div> 
+                                    </td>  
+                                    <td>
+                                        <div class="profile-card">  
+                                            <img src="./img/3.png" alt="user" class="profile-image">  
+                                            <div class="profile-info">  
+                                                <p class="name">Faihan Kasem</p>  
+                                                <p class="title">Ticnical</p>  
+                                            </div>  
+                                        </div> 
+                                    </td>  
+                                    <td>
+                                        <div class="profile-card">  
+                                            <img src="./img/4.png" alt="user" class="profile-image">  
+                                            <div class="profile-info">  
+                                                <p class="name">Saif Nadir</p>  
+                                                <p class="title">SoftWare Eng</p>  
+                                            </div>  
+                                        </div>  
+                                    </td>  
+                                    <td> 
+                                        <div class="progress"><i class='bx bxs-circle' style="font-size: x-small;"></i>
+                                            In Progress</div>
+                                    </td>  
+                                    <td>
+                                        <div class="avatar-container">  
+                                            <img src="./img/4.png" alt="1" class="avatar">  
+                                            <img src="./img/3.png" alt="2" class="avatar">  
+                                            <img src="./img/2.png" alt="3" class="avatar">  
+                                            <img src="./img/1.png" alt="4" class="avatar">  
+                                            <span class="plus">+3</span>  
+                                        </div> 
+                                    </td>  
+                                    <td>
+                                        <div class="progress-bar">  
+                                            <div id="filled" class="filled" style="width: 60%;"></div>  
+                                            <input id="rangeInput" type="range" min="0" max="100" value="90" class="range-input">  
+                                            <span id="progressValue" class="progress-value">60%</span>
+
+                                        </div>  
+                                    </td>  
+                                    <td class="date">Oct 10,2020</td>  
+                                </tr>
+
+                            </tbody>  
+                        </table>  
+                    </div> 
+                    
+
+                </div>
+
+                <div class="bottom-grid">
+                    <div>
+                        <button class="bt1">Privious</button>
+                    </div>
+                    <div class="bot1">
+                    Page 1 Of 50
+                    </div>
+                    <div>
+                        <button class="bt1">Next</button>
+                    </div>
+                    
+                </div>
+            </div>
+        </main>
+    </div>
+    
+
+
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/boxicons/2.1.0/dist/boxicons.js" integrity="sha512-Dm5UxqUSgNd93XG7eseoOrScyM1BVs65GrwmavP0D0DujOA8mjiBfyj71wmI2VQZKnnZQsSWWsxDKNiQIqk8sQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="./js/Tick.js"></script> 
+</body>
+</html>
