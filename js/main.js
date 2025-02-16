@@ -1,3 +1,17 @@
+// loading
+
+window.onload = function(){
+    document.getElementById('loader').style.display="flex"
+    document.querySelector(".container").style.display='none'
+    setTimeout(()=>{
+        document.getElementById('loader').style.display="none"
+        document.querySelector(".container").style.display='block'
+        document.body.style.overflow='auto'
+
+    },3000)
+}
+
+
 //dark mode
 
 const themeToggle = document.getElementById('theme-toggle');  
